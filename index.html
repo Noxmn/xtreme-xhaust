@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoVista Media | Premium Car Photography & Videography</title>
+    <style>
+        :root {
+            --primary: #d4af37; /* Gold */
+            --secondary: #000000;
+            --accent: #e63946;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+        }
+        
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 5%;
+            position: fixed;
+            width: 90%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 24px;
+        }
+        
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--secondary);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #c9a227;
+            transform: translateY(-3px);
+        }
+        
+        section {
+            padding: 80px 10%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 250px;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 50px 10% 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">AutoVista Media</div>
+        <!-- Add menu items here -->
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Elevating Automotive Excellence Through Lens</h1>
+            <p>Premium car photography and videography services across India</p>
+            <button class="btn-primary">Book a Shoot</button>
+        </div>
+    </section>
+    
+    <section id="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+            <p>Based in India, AutoVista Media specializes in high-end automotive photography and videography. Our team of passionate professionals combines technical expertise with artistic vision to showcase vehicles in their best light.</p>
+            <p>We work with car enthusiasts, dealerships, manufacturers, and automotive brands across the country to create stunning visual content that tells your vehicle's story.</p>
+        </div>
+    </section>
+    
+    <section id="portfolio" style="background-color: #f5f5f5;">
+        <h2 class="section-title">Our Portfolio</h2>
+        <div class="portfolio-grid">
+            <!-- Portfolio items will be added here -->
+            <div class="portfolio-item">
+                <img src="portfolio1.jpg" alt="Luxury car photoshoot">
+            </div>
+            <div class="portfolio-item">
+                <img src="portfolio2.jpg" alt="Car commercial video">
+            </div>
+            <div class="portfolio-item">
+                <img src="portfolio3.jpg" alt="Drone car videography">
+            </div>
+            <div class="portfolio-item">
+                <img src="portfolio4.jpg" alt="Car dealership photography">
+            </div>
+        </div>
+    </section>
+    
+    <section id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <div class="service-card">
+                <i class="fas fa-camera" style="font-size: 40px; color: var(--primary); margin-bottom: 20px;"></i>
+                <h3>Premium Car Photography</h3>
+                <p>High-resolution professional photography showcasing your vehicle's best angles and features.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-video" style="font-size: 40px; color: var(--primary); margin-bottom: 20px;"></i>
+                <h3>Cinematic Car Videos</h3>
+                <p>Stunning videography with dynamic shots, slow motion, and professional editing.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-car" style="font-size: 40px; color: var(--primary); margin-bottom: 20px;"></i>
+                <h3>Dealership Catalogues</h3>
+                <p>Complete visual solutions for car dealerships to showcase their inventory.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials" style="background-color: #f5f5f5;">
+        <h2 class="section-title">Client Testimonials</h2>
+        <!-- Testimonial cards will go here -->
+    </section>
+    
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <form>
+                <div style="margin-bottom: 20px;">
+                    <input type="text" placeholder="Your Name" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <input type="email" placeholder="Your Email" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <textarea placeholder="Your Message" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; height: 150px;"></textarea>
+                </div>
+                <button class="btn-primary" type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;">
+            <div>
+                <h3 style="color: var(--primary);">AutoVista Media</h3>
+                <p>Premium automotive photography and videography services across India.</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="#home" style="color: white; text-decoration: none;">Home</a></li>
+                    <li><a href="#portfolio" style="color: white; text-decoration: none;">Portfolio</a></li>
+                    <li><a href="#services" style="color: white; text-decoration: none;">Services</a></li>
+                    <li><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> info@autovistamedia.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p style="margin-top: 20px;">© 2023 AutoVista Media. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
