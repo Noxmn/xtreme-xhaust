@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoVista Media | Premium Car Photography & Videography</title>
+    <title>Xtreme Xhaust | Premium Car Photography & Videography | Tricity, Chandigarh</title>
     <style>
         :root {
-            --primary: #d4af37; /* Gold */
+            --primary: #ff2d00; /* Xtreme red */
             --secondary: #000000;
-            --accent: #e63946;
+            --accent: #ff6b00;
             --light: #f8f9fa;
             --dark: #212529;
         }
@@ -27,19 +27,39 @@
             width: 90%;
             z-index: 1000;
             backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .logo {
             color: var(--primary);
             font-weight: 700;
             font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
         }
         
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('hero-bg.jpg');
-            background-size: cover;
-            background-position: center;
+            position: relative;
+            overflow: hidden;
             color: white;
             display: flex;
             align-items: center;
@@ -47,14 +67,41 @@
             text-align: center;
         }
         
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+        
         .hero-content h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
         }
         
         .btn-primary {
             background-color: var(--primary);
-            color: var(--secondary);
+            color: white;
             padding: 12px 30px;
             border: none;
             border-radius: 30px;
@@ -62,11 +109,13 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s;
+            cursor: pointer;
         }
         
         .btn-primary:hover {
-            background-color: #c9a227;
+            background-color: #e02600;
             transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
         section {
@@ -101,6 +150,7 @@
             overflow: hidden;
             border-radius: 8px;
             height: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .portfolio-item img {
@@ -112,6 +162,22 @@
         
         .portfolio-item:hover img {
             transform: scale(1.1);
+        }
+        
+        .portfolio-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 15px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .portfolio-item:hover .portfolio-caption {
+            opacity: 1;
         }
         
         .service-card {
@@ -127,6 +193,36 @@
             transform: translateY(-10px);
         }
         
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
         footer {
             background-color: var(--secondary);
             color: white;
@@ -137,6 +233,21 @@
             color: white;
             margin-right: 15px;
             font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -144,41 +255,108 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">AutoVista Media</div>
-        <!-- Add menu items here -->
+        <div class="logo">Xtreme Xhaust</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
     </nav>
     
-    <section class="hero">
+    <section class="hero" id="home">
+        <video autoplay muted loop class="hero-video">
+            <source src="Mercedes Benz AMG GLC43 Coupe Malaysia.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Elevating Automotive Excellence Through Lens</h1>
-            <p>Premium car photography and videography services across India</p>
-            <button class="btn-primary">Book a Shoot</button>
+            <h1>Xtreme Xhaust</h1>
+            <p>Premium automotive photography & videography services in Tricity, Chandigarh. Capturing the soul of your machine.</p>
+            <button class="btn-primary" id="book-now-btn">Book a Shoot</button>
         </div>
     </section>
     
     <section id="about">
         <h2 class="section-title">About Us</h2>
         <div class="about-content">
-            <p>Based in India, AutoVista Media specializes in high-end automotive photography and videography. Our team of passionate professionals combines technical expertise with artistic vision to showcase vehicles in their best light.</p>
-            <p>We work with car enthusiasts, dealerships, manufacturers, and automotive brands across the country to create stunning visual content that tells your vehicle's story.</p>
+            <p>Based in Tricity, Chandigarh, Xtreme Xhaust specializes in high-end automotive photography and videography. Our team combines technical expertise with artistic vision to showcase vehicles in their best light.</p>
+            <p>We work with car enthusiasts, dealerships, and automotive brands across North India to create stunning visual content that makes your vehicle look its absolute best.</p>
         </div>
     </section>
     
     <section id="portfolio" style="background-color: #f5f5f5;">
         <h2 class="section-title">Our Portfolio</h2>
         <div class="portfolio-grid">
-            <!-- Portfolio items will be added here -->
+            <!-- BMW -->
             <div class="portfolio-item">
-                <img src="portfolio1.jpg" alt="Luxury car photoshoot">
+                <img src="bmw1.jpg" alt="BMW car photoshoot">
+                <div class="portfolio-caption">BMW Photoshoot</div>
             </div>
             <div class="portfolio-item">
-                <img src="portfolio2.jpg" alt="Car commercial video">
+                <img src="bmw2.jpg" alt="BMW car photoshoot">
+                <div class="portfolio-caption">BMW Photoshoot</div>
+            </div>
+            
+            <!-- McLaren -->
+            <div class="portfolio-item">
+                <img src="mclaren1.jpg" alt="McLaren car photoshoot">
+                <div class="portfolio-caption">McLaren Photoshoot</div>
             </div>
             <div class="portfolio-item">
-                <img src="portfolio3.jpg" alt="Drone car videography">
+                <img src="mclaren2.jpg" alt="McLaren car photoshoot">
+                <div class="portfolio-caption">McLaren Photoshoot</div>
+            </div>
+            
+            <!-- Bentley -->
+            <div class="portfolio-item">
+                <img src="bentley1.jpg" alt="Bentley car photoshoot">
+                <div class="portfolio-caption">Bentley Photoshoot</div>
+            </div>
+            
+            <!-- Maserati -->
+            <div class="portfolio-item">
+                <img src="maserati1.jpg" alt="Maserati car photoshoot">
+                <div class="portfolio-caption">Maserati Photoshoot</div>
+            </div>
+            
+            <!-- Ferrari -->
+            <div class="portfolio-item">
+                <img src="ferrari1.jpg" alt="Ferrari car photoshoot">
+                <div class="portfolio-caption">Ferrari Photoshoot</div>
             </div>
             <div class="portfolio-item">
-                <img src="portfolio4.jpg" alt="Car dealership photography">
+                <img src="ferrari2.jpg" alt="Ferrari car photoshoot">
+                <div class="portfolio-caption">Ferrari Photoshoot</div>
+            </div>
+            
+            <!-- Kawasaki Ninja ZX10R -->
+            <div class="portfolio-item">
+                <img src="kawasaki1.jpg" alt="Kawasaki Ninja ZX10R photoshoot">
+                <div class="portfolio-caption">Kawasaki Ninja ZX10R</div>
+            </div>
+            <div class="portfolio-item">
+                <img src="kawasaki2.jpg" alt="Kawasaki Ninja ZX10R photoshoot">
+                <div class="portfolio-caption">Kawasaki Ninja ZX10R</div>
+            </div>
+            <div class="portfolio-item">
+                <img src="kawasaki3.jpg" alt="Kawasaki Ninja ZX10R photoshoot">
+                <div class="portfolio-caption">Kawasaki Ninja ZX10R</div>
+            </div>
+            
+            <!-- Lamborghini Urus -->
+            <div class="portfolio-item">
+                <img src="urus1.jpg" alt="Lamborghini Urus photoshoot">
+                <div class="portfolio-caption">Lamborghini Urus</div>
+            </div>
+            
+            <!-- Lamborghini Huracan Evo Spider -->
+            <div class="portfolio-item">
+                <img src="huracan1.jpg" alt="Lamborghini Huracan Evo Spider photoshoot">
+                <div class="portfolio-caption">Huracan Evo Spider</div>
+            </div>
+            <div class="portfolio-item">
+                <img src="huracan2.jpg" alt="Lamborghini Huracan Evo Spider photoshoot">
+                <div class="portfolio-caption">Huracan Evo Spider</div>
             </div>
         </div>
     </section>
@@ -189,38 +367,53 @@
             <div class="service-card">
                 <i class="fas fa-camera" style="font-size: 40px; color: var(--primary); margin-bottom: 20px;"></i>
                 <h3>Premium Car Photography</h3>
-                <p>High-resolution professional photography showcasing your vehicle's best angles and features.</p>
+                <p>High-resolution professional photography showcasing your vehicle's best angles and features with studio-quality lighting.</p>
             </div>
             <div class="service-card">
                 <i class="fas fa-video" style="font-size: 40px; color: var(--primary); margin-bottom: 20px;"></i>
                 <h3>Cinematic Car Videos</h3>
-                <p>Stunning videography with dynamic shots, slow motion, and professional editing.</p>
+                <p>Stunning videography with dynamic shots, slow motion, rolling shots and professional editing.</p>
             </div>
             <div class="service-card">
                 <i class="fas fa-car" style="font-size: 40px; color: var(--primary); margin-bottom: 20px;"></i>
                 <h3>Dealership Catalogues</h3>
-                <p>Complete visual solutions for car dealerships to showcase their inventory.</p>
+                <p>Complete visual solutions for car dealerships to showcase their inventory with consistent, high-quality images.</p>
             </div>
         </div>
     </section>
     
     <section id="testimonials" style="background-color: #f5f5f5;">
         <h2 class="section-title">Client Testimonials</h2>
-        <!-- Testimonial cards will go here -->
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p>"Xtreme Xhaust captured my Ferrari in ways I didn't think possible. The photos look absolutely stunning!"</p>
+            <p><strong>- Rajesh, Chandigarh</strong></p>
+        </div>
     </section>
     
     <section id="contact">
         <h2 class="section-title">Get In Touch</h2>
         <div style="max-width: 800px; margin: 0 auto;">
-            <form>
+            <form id="contact-form" action="https://formspree.io/f/xzzvonaz" method="POST">
                 <div style="margin-bottom: 20px;">
-                    <input type="text" placeholder="Your Name" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                    <input type="text" name="name" placeholder="Your Name" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;" required>
                 </div>
                 <div style="margin-bottom: 20px;">
-                    <input type="email" placeholder="Your Email" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                    <input type="email" name="email" placeholder="Your Email" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;" required>
                 </div>
                 <div style="margin-bottom: 20px;">
-                    <textarea placeholder="Your Message" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; height: 150px;"></textarea>
+                    <input type="tel" name="phone" placeholder="Your Phone Number" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;" required>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <select name="service" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;" required>
+                        <option value="">Select Service</option>
+                        <option value="Photoshoot">Photoshoot</option>
+                        <option value="Videography">Videography</option>
+                        <option value="Both">Both</option>
+                        <option value="Dealership Catalogue">Dealership Catalogue</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <textarea name="message" placeholder="Your Message & Vehicle Details" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; height: 150px;"></textarea>
                 </div>
                 <button class="btn-primary" type="submit">Send Message</button>
             </form>
@@ -230,8 +423,8 @@
     <footer>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;">
             <div>
-                <h3 style="color: var(--primary);">AutoVista Media</h3>
-                <p>Premium automotive photography and videography services across India.</p>
+                <h3 style="color: var(--primary);">Xtreme Xhaust</h3>
+                <p>Premium automotive photography and videography services in Tricity, Chandigarh.</p>
             </div>
             <div>
                 <h3>Quick Links</h3>
@@ -244,9 +437,9 @@
             </div>
             <div>
                 <h3>Contact Us</h3>
-                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
-                <p><i class="fas fa-envelope"></i> info@autovistamedia.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+                <p><i class="fas fa-phone"></i> +91 XXXXX XXXXX</p>
+                <p><i class="fas fa-envelope"></i> info@xtremexhaust.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Tricity, Chandigarh, India</p>
             </div>
         </div>
         <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
@@ -256,8 +449,95 @@
                 <a href="#"><i class="fab fa-youtube"></i></a>
                 <a href="#"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <p style="margin-top: 20px;">© 2023 AutoVista Media. All Rights Reserved.</p>
+            <p style="margin-top: 20px;">© 2023 Xtreme Xhaust. All Rights Reserved.</p>
         </div>
     </footer>
+    
+    <!-- Booking Modal -->
+    <div class="modal" id="booking-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="margin-top: 0;">Book a Photoshoot</h2>
+            <form id="booking-form" action="https://formspree.io/f/xzzvonaz" method="POST">
+                <div style="margin-bottom: 15px;">
+                    <input type="text" name="name" placeholder="Your Name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="email" name="email" placeholder="Your Email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="tel" name="phone" placeholder="Phone Number" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <select name="service" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                        <option value="">Select Service</option>
+                        <option value="Photoshoot">Photoshoot</option>
+                        <option value="Videography">Videography</option>
+                        <option value="Both">Both</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="text" name="vehicle" placeholder="Vehicle Make & Model" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="date" name="date" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                </div>
+                <button class="btn-primary" type="submit">Book Now</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // Booking modal functionality
+        const modal = document.getElementById('booking-modal');
+        const btn = document.getElementById('book-now-btn');
+        const span = document.getElementsByClassName('close-modal')[0];
+        
+        btn.onclick = function() {
+            modal.style.display = 'flex';
+        }
+        
+        span.onclick = function() {
+            modal.style.display = 'none';
+        }
+        
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+        
+        // Form submission handling
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Thank you for your booking! We will contact you soon.');
+                        form.reset();
+                        if (form.id === 'booking-form') {
+                            modal.style.display = 'none';
+                        }
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    alert('There was a problem with your submission. Please try again.');
+                    console.error('Error:', error);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
