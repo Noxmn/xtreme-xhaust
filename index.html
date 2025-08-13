@@ -18,6 +18,8 @@
             margin: 0;
             padding: 0;
             color: var(--dark);
+            padding-bottom: 60px; /* For contact banner */
+            overflow-x: hidden;
         }
         
         .navbar {
@@ -139,6 +141,77 @@
             background-color: var(--primary);
         }
         
+        /* Instagram-style Portfolio */
+        .portfolio-story {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 2000;
+            display: none;
+        }
+        
+        .story-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .story-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: black;
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.3s ease;
+        }
+        
+        .story-image.active {
+            opacity: 1;
+        }
+        
+        .story-username {
+            position: absolute;
+            top: 30px;
+            left: 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            z-index: 10;
+        }
+        
+        .story-nav {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            z-index: 5;
+        }
+        
+        .story-prev {
+            left: 0;
+        }
+        
+        .story-next {
+            right: 0;
+        }
+        
+        .close-story {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            z-index: 10;
+            cursor: pointer;
+        }
+        
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -151,6 +224,7 @@
             border-radius: 8px;
             height: 250px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
         }
         
         .portfolio-item img {
@@ -223,6 +297,46 @@
             cursor: pointer;
         }
         
+        .confirmation-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .confirmation-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+        
+        .confirmation-icon {
+            font-size: 60px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        
+        .contact-banner {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
         footer {
             background-color: var(--secondary);
             color: white;
@@ -247,6 +361,16 @@
             
             .nav-links {
                 display: none;
+            }
+            
+            .contact-banner {
+                font-size: 14px;
+                padding: 10px;
+            }
+            
+            .story-username {
+                font-size: 16px;
+                top: 20px;
             }
         }
     </style>
@@ -288,78 +412,65 @@
         <h2 class="section-title">Our Portfolio</h2>
         <div class="portfolio-grid">
             <!-- BMW -->
-            <div class="portfolio-item">
+            <div class="portfolio-item" data-car="BMW Z4" data-images='["WhatsApp Image 2025-08-13 at 21.07.05 (1).jpeg","WhatsApp Image 2025-08-13 at 21.07.01.jpeg"]'>
                 <img src="WhatsApp Image 2025-08-13 at 21.07.05 (1).jpeg" alt="BMW car photoshoot">
-                <div class="portfolio-caption">BMW Photoshoot</div>
-            </div>
-            <div class="portfolio-item">
-                <img src="WhatsApp Image 2025-08-13 at 21.07.01.jpeg" alt="BMW car photoshoot">
-                <div class="portfolio-caption">BMW Photoshoot</div>
+                <div class="portfolio-caption">BMW Z4 Photoshoot</div>
             </div>
             
             <!-- McLaren -->
-            <div class="portfolio-item">
+            <div class="portfolio-item" data-car="McLaren 720S" data-images='["WhatsApp Image 2025-08-13 at 21.07.07.jpeg","WhatsApp Image 2025-08-13 at 21.06.59.jpeg"]'>
                 <img src="WhatsApp Image 2025-08-13 at 21.07.07.jpeg" alt="McLaren car photoshoot">
-                <div class="portfolio-caption">McLaren Photoshoot</div>
-            </div>
-            <div class="portfolio-item">
-                <img src="WhatsApp Image 2025-08-13 at 21.06.59.jpeg" alt="McLaren car photoshoot">
-                <div class="portfolio-caption">McLaren Photoshoot</div>
+                <div class="portfolio-caption">McLaren 720S</div>
             </div>
             
             <!-- Bentley -->
-            <div class="portfolio-item">
+            <div class="portfolio-item" data-car="Bentley Continental GT" data-images='["WhatsApp Image 2025-08-13 at 21.07.02.jpeg"]'>
                 <img src="WhatsApp Image 2025-08-13 at 21.07.02.jpeg" alt="Bentley car photoshoot">
-                <div class="portfolio-caption">Bentley Photoshoot</div>
+                <div class="portfolio-caption">Bentley Continental GT</div>
             </div>
             
             <!-- Maserati -->
-            <div class="portfolio-item">
+            <div class="portfolio-item" data-car="Maserati GranTurismo" data-images='["WhatsApp Image 2025-08-13 at 21.07.00.jpeg"]'>
                 <img src="WhatsApp Image 2025-08-13 at 21.07.00.jpeg" alt="Maserati car photoshoot">
-                <div class="portfolio-caption">Maserati Photoshoot</div>
+                <div class="portfolio-caption">Maserati GranTurismo</div>
             </div>
             
             <!-- Ferrari -->
-            <div class="portfolio-item">
+            <div class="portfolio-item" data-car="Ferrari 488 GTB" data-images='["WhatsApp Image 2025-08-13 at 21.07.06 (1).jpeg","WhatsApp Image 2025-08-13 at 21.07.06.jpeg"]'>
                 <img src="WhatsApp Image 2025-08-13 at 21.07.06 (1).jpeg" alt="Ferrari car photoshoot">
-                <div class="portfolio-caption">Ferrari Photoshoot</div>
-            </div>
-            <div class="portfolio-item">
-                <img src="WhatsApp Image 2025-08-13 at 21.07.06.jpeg" alt="Ferrari car photoshoot">
-                <div class="portfolio-caption">Ferrari Photoshoot</div>
+                <div class="portfolio-caption">Ferrari 488 GTB</div>
             </div>
             
             <!-- Kawasaki Ninja ZX10R -->
-            <div class="portfolio-item">
+            <div class="portfolio-item" data-car="Kawasaki Ninja ZX10R" data-images='["WhatsApp Image 2025-08-13 at 21.07.04 (1).jpeg","WhatsApp Image 2025-08-13 at 21.07.04.jpeg","WhatsApp Image 2025-08-13 at 21.07.05.jpeg"]'>
                 <img src="WhatsApp Image 2025-08-13 at 21.07.04 (1).jpeg" alt="Kawasaki Ninja ZX10R photoshoot">
-                <div class="portfolio-caption">Kawasaki Ninja ZX10R</div>
-            </div>
-            <div class="portfolio-item">
-                <img src="WhatsApp Image 2025-08-13 at 21.07.04.jpeg" alt="Kawasaki Ninja ZX10R photoshoot">
-                <div class="portfolio-caption">Kawasaki Ninja ZX10R</div>
-            </div>
-            <div class="portfolio-item">
-                <img src="WhatsApp Image 2025-08-13 at 21.07.05.jpeg" alt="Kawasaki Ninja ZX10R photoshoot">
                 <div class="portfolio-caption">Kawasaki Ninja ZX10R</div>
             </div>
             
             <!-- Lamborghini Urus -->
-            <div class="portfolio-item">
+            <div class="portfolio-item" data-car="Lamborghini Urus" data-images='["WhatsApp Image 2025-08-13 at 21.07.02 (1).jpeg"]'>
                 <img src="WhatsApp Image 2025-08-13 at 21.07.02 (1).jpeg" alt="Lamborghini Urus photoshoot">
                 <div class="portfolio-caption">Lamborghini Urus</div>
             </div>
             
             <!-- Lamborghini Huracan Evo Spider -->
-            <div class="portfolio-item">
+            <div class="portfolio-item" data-car="Lamborghini Huracan Evo Spider" data-images='["WhatsApp Image 2025-08-13 at 21.06.43.jpeg","WhatsApp Image 2025-08-13 at 21.06.44.jpeg"]'>
                 <img src="WhatsApp Image 2025-08-13 at 21.06.43.jpeg" alt="Lamborghini Huracan Evo Spider photoshoot">
-                <div class="portfolio-caption">Huracan Evo Spider</div>
-            </div>
-            <div class="portfolio-item">
-                <img src="WhatsApp Image 2025-08-13 at 21.06.44.jpeg" alt="Lamborghini Huracan Evo Spider photoshoot">
                 <div class="portfolio-caption">Huracan Evo Spider</div>
             </div>
         </div>
     </section>
+    
+    <!-- Instagram Story Style Portfolio Viewer -->
+    <div class="portfolio-story" id="portfolio-story">
+        <div class="story-container">
+            <span class="close-story">&times;</span>
+            <div class="story-username" id="story-username"></div>
+            <div class="story-nav story-prev" id="story-prev"></div>
+            <div class="story-nav story-next" id="story-next"></div>
+            <!-- Images will be inserted here by JavaScript -->
+        </div>
+    </div>
     
     <section id="services">
         <h2 class="section-title">Our Services</h2>
@@ -385,8 +496,8 @@
     <section id="testimonials" style="background-color: #f5f5f5;">
         <h2 class="section-title">Client Testimonials</h2>
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-            <p>"Xtreme Xhaust captured my Ferrari in ways I didn't think possible. The photos look absolutely stunning!"</p>
-            <p><strong>- Rajesh, Chandigarh</strong></p>
+            <p>"Xtreme Xhaust's photos of my BMW Z4 perfectly captured its sleek design and performance spirit. The images were so good I used them as my phone wallpaper!"</p>
+            <p><strong>- Vikram, Chandigarh</strong></p>
         </div>
     </section>
     
@@ -437,8 +548,8 @@
             </div>
             <div>
                 <h3>Contact Us</h3>
-                <p><i class="fas fa-phone"></i> +91 XXXXX XXXXX</p>
-                <p><i class="fas fa-envelope"></i> info@xtremexhaust.com</p>
+                <p><i class="fas fa-phone"></i> +91 7679990006</p>
+                <p><i class="fas fa-envelope"></i> xtremexhaust24@gmail.com</p>
                 <p><i class="fas fa-map-marker-alt"></i> Tricity, Chandigarh, India</p>
             </div>
         </div>
@@ -447,7 +558,7 @@
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-facebook"></i></a>
                 <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://wa.me/917679990006"><i class="fab fa-whatsapp"></i></a>
             </div>
             <p style="margin-top: 20px;">© 2023 Xtreme Xhaust. All Rights Reserved.</p>
         </div>
@@ -487,7 +598,130 @@
         </div>
     </div>
     
+    <!-- Shoot Confirmed Modal -->
+    <div class="confirmation-modal" id="confirmation-modal">
+        <div class="confirmation-content">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Shoot Confirmed!</h2>
+            <p>Your booking has been successfully submitted. We'll contact you shortly to confirm the details.</p>
+            <p>For immediate queries, call us at: <strong>+91 7679990006</strong></p>
+            <button class="btn-primary" id="close-confirmation" style="margin-top: 20px;">Got It!</button>
+        </div>
+    </div>
+    
+    <!-- Contact Banner -->
+    <div class="contact-banner">
+        For queries, contact us at: <strong>+91 7679990006</strong> | <a href="mailto:xtremexhaust24@gmail.com" style="color: white; text-decoration: underline;">xtremexhaust24@gmail.com</a>
+    </div>
+    
     <script>
+        // Instagram Story Portfolio Functionality
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        const portfolioStory = document.getElementById('portfolio-story');
+        const storyContainer = document.querySelector('.story-container');
+        const closeStory = document.querySelector('.close-story');
+        const storyUsername = document.getElementById('story-username');
+        const storyPrev = document.getElementById('story-prev');
+        const storyNext = document.getElementById('story-next');
+        
+        let currentCar = '';
+        let currentImages = [];
+        let currentIndex = 0;
+        
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', function() {
+                currentCar = this.getAttribute('data-car');
+                currentImages = JSON.parse(this.getAttribute('data-images'));
+                currentIndex = 0;
+                
+                // Show the story viewer
+                portfolioStory.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                
+                // Set the username
+                storyUsername.textContent = currentCar;
+                
+                // Load the first image
+                loadStoryImage();
+            });
+        });
+        
+        function loadStoryImage() {
+            // Clear existing images
+            storyContainer.querySelectorAll('.story-image').forEach(img => img.remove());
+            
+            // Create new image
+            const img = document.createElement('img');
+            img.src = currentImages[currentIndex];
+            img.classList.add('story-image', 'active');
+            storyContainer.insertBefore(img, storyUsername.nextSibling);
+            
+            // Add touch events for mobile swipe
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            img.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, false);
+            
+            img.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, false);
+        }
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                // Swipe left - next image
+                nextImage();
+            } else if (touchEndX > touchStartX + 50) {
+                // Swipe right - previous image
+                prevImage();
+            }
+        }
+        
+        function nextImage() {
+            if (currentIndex < currentImages.length - 1) {
+                currentIndex++;
+                loadStoryImage();
+            } else {
+                // If last image, close the story
+                closeStoryViewer();
+            }
+        }
+        
+        function prevImage() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                loadStoryImage();
+            }
+        }
+        
+        storyNext.addEventListener('click', nextImage);
+        storyPrev.addEventListener('click', prevImage);
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (portfolioStory.style.display === 'block') {
+                if (e.key === 'ArrowRight') {
+                    nextImage();
+                } else if (e.key === 'ArrowLeft') {
+                    prevImage();
+                } else if (e.key === 'Escape') {
+                    closeStoryViewer();
+                }
+            }
+        });
+        
+        function closeStoryViewer() {
+            portfolioStory.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        closeStory.addEventListener('click', closeStoryViewer);
+        
         // Booking modal functionality
         const modal = document.getElementById('booking-modal');
         const btn = document.getElementById('book-now-btn');
@@ -501,9 +735,23 @@
             modal.style.display = 'none';
         }
         
+        // Confirmation modal functionality
+        const confirmationModal = document.getElementById('confirmation-modal');
+        const closeConfirmation = document.getElementById('close-confirmation');
+        
+        closeConfirmation.onclick = function() {
+            confirmationModal.style.display = 'none';
+        }
+        
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = 'none';
+            }
+            if (event.target == confirmationModal) {
+                confirmationModal.style.display = 'none';
+            }
+            if (event.target == portfolioStory) {
+                closeStoryViewer();
             }
         }
         
@@ -523,11 +771,12 @@
                 })
                 .then(response => {
                     if (response.ok) {
-                        alert('Thank you for your booking! We will contact you soon.');
+                        // Hide booking modal if open
+                        modal.style.display = 'none';
+                        // Show confirmation modal
+                        confirmationModal.style.display = 'flex';
+                        // Reset form
                         form.reset();
-                        if (form.id === 'booking-form') {
-                            modal.style.display = 'none';
-                        }
                     } else {
                         throw new Error('Network response was not ok');
                     }
