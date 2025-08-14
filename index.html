@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Xtreme Xhaust | Premium Automotive Photography | Tricity, Chandigarh</title>
+    <title>Xtreme Xhaust | Premium Automotive Media Services | Tricity, Chandigarh</title>
     <style>
         :root {
             --primary: #ff2d00; /* Xtreme red */
@@ -133,7 +133,7 @@
         }
         
         section {
-            padding: clamp(40px, 8vw, 80px) 5%;
+            padding: clamp(30px, 5vw, 60px) 5%;
             width: 100%;
             max-width: 1600px;
             margin: 0 auto;
@@ -141,18 +141,18 @@
         
         .section-title {
             text-align: center;
-            margin-bottom: clamp(30px, 5vw, 50px);
+            margin-bottom: clamp(20px, 4vw, 40px);
             position: relative;
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
         }
         
         .section-title:after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 60px;
             height: 3px;
             background-color: var(--primary);
         }
@@ -166,15 +166,15 @@
         .view-portfolio-btn {
             background-color: var(--primary);
             color: white;
-            padding: 15px 40px;
+            padding: 12px 30px;
             border: none;
             border-radius: 30px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin: 30px auto;
+            margin: 20px auto;
             cursor: pointer;
-            font-size: clamp(16px, 3vw, 18px);
+            font-size: clamp(14px, 2.5vw, 16px);
             display: block;
             transition: all 0.3s;
             width: fit-content;
@@ -227,11 +227,11 @@
         
         .story-username {
             position: absolute;
-            top: calc(30px + var(--safe-area));
-            left: 20px;
+            top: calc(20px + var(--safe-area));
+            left: 15px;
             color: white;
             font-weight: bold;
-            font-size: clamp(16px, 4vw, 18px);
+            font-size: clamp(14px, 3.5vw, 16px);
             z-index: 10;
             text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
@@ -255,33 +255,33 @@
         
         .close-story {
             position: absolute;
-            top: calc(20px + var(--safe-area));
-            right: 20px;
+            top: calc(15px + var(--safe-area));
+            right: 15px;
             color: white;
-            font-size: clamp(24px, 6vw, 30px);
+            font-size: clamp(20px, 5vw, 26px);
             z-index: 10;
             cursor: pointer;
             text-shadow: 0 1px 3px rgba(0,0,0,0.5);
             background: none;
             border: none;
-            padding: 10px;
+            padding: 8px;
         }
         
         .story-progress-container {
             position: absolute;
-            top: calc(15px + var(--safe-area));
-            left: 10px;
-            right: 10px;
+            top: calc(12px + var(--safe-area));
+            left: 8px;
+            right: 8px;
             display: flex;
-            gap: 5px;
+            gap: 4px;
             z-index: 10;
         }
         
         .story-progress-bar {
-            height: 3px;
+            height: 2px;
             background: rgba(255,255,255,0.3);
             flex-grow: 1;
-            border-radius: 3px;
+            border-radius: 2px;
             overflow: hidden;
         }
         
@@ -308,7 +308,7 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.95);
             z-index: 999;
             flex-direction: column;
             align-items: center;
@@ -323,9 +323,9 @@
         .mobile-menu a {
             color: white;
             text-decoration: none;
-            font-size: 24px;
-            margin: 15px 0;
-            padding: 10px 20px;
+            font-size: clamp(18px, 5vw, 22px);
+            margin: 12px 0;
+            padding: 8px 16px;
             transition: color 0.3s;
         }
         
@@ -335,16 +335,175 @@
         
         .close-mobile-menu {
             position: absolute;
-            top: calc(20px + var(--safe-area));
-            right: 20px;
+            top: calc(15px + var(--safe-area));
+            right: 15px;
             color: white;
-            font-size: 30px;
+            font-size: clamp(22px, 6vw, 28px);
             background: none;
             border: none;
             cursor: pointer;
         }
         
-        /* [Rest of your CSS remains the same] */
+        /* Contact Form */
+        input, select, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: clamp(13px, 3vw, 15px);
+            margin-bottom: 15px;
+        }
+        
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: clamp(25px, 5vw, 40px) 5% 15px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
+            gap: clamp(15px, 4vw, 30px);
+        }
+        
+        .footer-grid h3 {
+            font-size: clamp(16px, 3.5vw, 18px);
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+        
+        .footer-grid p, .footer-grid li {
+            font-size: clamp(13px, 3vw, 14px);
+            line-height: 1.5;
+        }
+        
+        .footer-grid ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-grid a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-grid a:hover {
+            color: var(--primary);
+        }
+        
+        .social-icons {
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-right: 12px;
+            font-size: clamp(16px, 4vw, 20px);
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: clamp(12px, 3vw, 14px);
+        }
+        
+        /* Contact Banner */
+        .contact-banner {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
+            font-size: clamp(11px, 3vw, 14px);
+        }
+        
+        .contact-banner a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* Modal Windows */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: clamp(18px, 4vw, 25px);
+            border-radius: 8px;
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-content h2 {
+            margin-top: 0;
+            font-size: clamp(1.3rem, 4vw, 1.6rem);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 22px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        /* Responsive Adjustments */
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            
+            .service-card {
+                padding: 18px;
+            }
+            
+            .service-icon {
+                font-size: 28px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -375,23 +534,23 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Xtreme Xhaust</h1>
-            <p>Premium automotive photography services in Tricity, Chandigarh. Capturing the soul of your machine.</p>
-            <button class="btn-primary" id="book-now-btn">Book a Shoot</button>
+            <p>Premium automotive media services in Tricity, Chandigarh. Photography, videography, editing and more.</p>
+            <button class="btn-primary" id="book-now-btn">Book a Service</button>
         </div>
     </section>
     
     <section id="about">
         <h2 class="section-title">About Us</h2>
         <div class="about-content">
-            <p>Based in Tricity, Chandigarh, Xtreme Xhaust specializes in high-end automotive photography. Our team combines technical expertise with artistic vision to showcase vehicles in their best light.</p>
-            <p>We work with car enthusiasts, dealerships, and automotive brands across North India to create stunning visual content that makes your vehicle look its absolute best.</p>
+            <p>Based in Tricity, Chandigarh, Xtreme Xhaust specializes in high-end automotive media services. Our team combines technical expertise with artistic vision to showcase vehicles in their best light.</p>
+            <p>We work with car enthusiasts, dealerships, and automotive brands across North India to create stunning visual content and comprehensive media solutions.</p>
         </div>
     </section>
     
     <section id="portfolio" class="portfolio-section">
         <h2 class="section-title">Our Portfolio</h2>
         <p>Explore our premium automotive photography collection</p>
-        <button class="view-portfolio-btn" id="view-portfolio-btn">View Portfolio</button>
+        <button class="view-portfolio-btn" id="view-portfolio-btn">View Full Portfolio</button>
     </section>
     
     <!-- Instagram Story Style Portfolio Viewer -->
@@ -405,10 +564,224 @@
         </div>
     </div>
     
-    <!-- [Rest of your HTML remains the same] -->
-
+    <section id="services" class="services-section">
+        <h2 class="section-title">Our Services</h2>
+        
+        <div class="services-category">
+            <h3>Photography & Videography</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-camera"></i></div>
+                    <h4>Premium Car Photography</h4>
+                    <p>Studio-quality automotive photography showcasing your vehicle's best features</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-video"></i></div>
+                    <h4>Cinematic Car Videos</h4>
+                    <p>Professional videography with dynamic shots and smooth editing</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-car"></i></div>
+                    <h4>Dealership Catalogues</h4>
+                    <p>Complete visual solutions for dealership inventory presentation</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="services-category">
+            <h3>Editing Services</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-image"></i></div>
+                    <h4>Photo Editing</h4>
+                    <p>Professional retouching, background replacement, and enhancement</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-film"></i></div>
+                    <h4>Video Editing</h4>
+                    <p>Cinematic editing with transitions, effects, and sound design</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-palette"></i></div>
+                    <h4>Color Grading</h4>
+                    <p>Professional color correction and stylistic grading for videos</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="services-category">
+            <h3>Digital Services</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-globe"></i></div>
+                    <h4>Website Development</h4>
+                    <p>Custom websites for automotive businesses and enthusiasts</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h4>Automotive Marketing</h4>
+                    <p>Social media management and promotional campaigns</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-ad"></i></div>
+                    <h4>Media Packages</h4>
+                    <p>Complete media solutions including all services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials" style="background-color: #f5f5f5;">
+        <h2 class="section-title">Client Testimonials</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p>"Xtreme Xhaust's photos of my BMW Z4 perfectly captured its sleek design and performance spirit. The images were so good I used them as my phone wallpaper!"</p>
+            <p><strong>- Vikram, Chandigarh</strong></p>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <form id="contact-form" action="https://formspree.io/f/xzzvonaz" method="POST">
+                <div style="margin-bottom: 15px;">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <select name="service" required>
+                        <option value="">Select Service</option>
+                        <optgroup label="Photography & Videography">
+                            <option value="Car Photography">Car Photography</option>
+                            <option value="Car Videography">Car Videography</option>
+                            <option value="Dealership Catalogue">Dealership Catalogue</option>
+                        </optgroup>
+                        <optgroup label="Editing Services">
+                            <option value="Photo Editing">Photo Editing</option>
+                            <option value="Video Editing">Video Editing</option>
+                            <option value="Color Grading">Color Grading</option>
+                        </optgroup>
+                        <optgroup label="Digital Services">
+                            <option value="Website Development">Website Development</option>
+                            <option value="Automotive Marketing">Automotive Marketing</option>
+                            <option value="Full Media Package">Full Media Package</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <textarea name="message" placeholder="Your Message & Details" required></textarea>
+                </div>
+                <button class="btn-primary" type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>Xtreme Xhaust</h3>
+                <p>Premium automotive media services in Tricity, Chandigarh. Photography, videography, editing and digital solutions.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="https://wa.me/917679990006"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +91 7679990006</p>
+                <p><i class="fas fa-envelope"></i> xtremexhaust24@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Tricity, Chandigarh, India</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Xtreme Xhaust. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Booking Modal -->
+    <div class="modal" id="booking-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Book a Service</h2>
+            <form id="booking-form" action="https://formspree.io/f/xzzvonaz" method="POST">
+                <div style="margin-bottom: 15px;">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <select name="service" required>
+                        <option value="">Select Service</option>
+                        <optgroup label="Photography & Videography">
+                            <option value="Car Photography">Car Photography</option>
+                            <option value="Car Videography">Car Videography</option>
+                            <option value="Dealership Catalogue">Dealership Catalogue</option>
+                        </optgroup>
+                        <optgroup label="Editing Services">
+                            <option value="Photo Editing">Photo Editing</option>
+                            <option value="Video Editing">Video Editing</option>
+                            <option value="Color Grading">Color Grading</option>
+                        </optgroup>
+                        <optgroup label="Digital Services">
+                            <option value="Website Development">Website Development</option>
+                            <option value="Automotive Marketing">Automotive Marketing</option>
+                            <option value="Full Media Package">Full Media Package</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="text" name="details" placeholder="Vehicle/Project Details" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="date" name="date" required>
+                </div>
+                <button class="btn-primary" type="submit">Book Now</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmation-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div style="text-align: center;">
+                <div style="font-size: 50px; color: #4CAF50; margin-bottom: 20px;">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Booking Confirmed!</h2>
+                <p>Your service request has been submitted successfully. We'll contact you shortly to confirm the details.</p>
+                <p>For immediate queries, call us at: <strong>+91 7679990006</strong></p>
+                <button class="btn-primary" id="close-confirmation" style="margin-top: 20px;">Got It!</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact Banner -->
+    <div class="contact-banner">
+        For queries, contact us at: <strong>+91 7679990006</strong> | <a href="mailto:xtremexhaust24@gmail.com">xtremexhaust24@gmail.com</a>
+    </div>
+    
     <script>
-        // Portfolio Data with your specified images
+        // Portfolio Data with your images
         const portfolioData = [
             {
                 car: "Porsche 911 Turbo S",
@@ -519,20 +892,16 @@
         let autoAdvanceTimer;
         let progressInterval;
         
-        // View Portfolio Button
+        // View Full Portfolio Button
         viewPortfolioBtn.addEventListener('click', function() {
-            loadCarStory(0); // Start with first car
+            loadCarStory(0);
         });
         
         function loadCarStory(carIndex) {
             currentCarIndex = carIndex;
             currentImageIndex = 0;
-            
-            // Show the story viewer
             portfolioStory.style.display = 'block';
             document.body.style.overflow = 'hidden';
-            
-            // Load the first image
             loadStoryImage();
         }
         
@@ -555,10 +924,8 @@
             img.classList.add('story-image', 'active');
             storyContainer.insertBefore(img, storyUsername.nextSibling);
             
-            // Start auto-advance timer (5 seconds per image)
+            // Start auto-advance and progress bar
             resetAutoAdvanceTimer();
-            
-            // Start progress bar animation
             startProgressBar(currentImageIndex);
         }
         
@@ -588,8 +955,8 @@
             currentProgressBar.appendChild(progressFill);
             
             let width = 0;
-            const duration = 5000; // 5 seconds
-            const interval = 50; // update every 50ms
+            const duration = 5000;
+            const interval = 50;
             const increment = (interval / duration) * 100;
             
             progressInterval = setInterval(() => {
@@ -606,34 +973,29 @@
             clearTimeout(autoAdvanceTimer);
             autoAdvanceTimer = setTimeout(() => {
                 nextImage();
-            }, 5000); // 5 seconds per image
+            }, 5000);
         }
         
         function nextImage() {
             const carData = portfolioData[currentCarIndex];
             
             if (currentImageIndex < carData.images.length - 1) {
-                // Next image in current car
                 currentImageIndex++;
                 loadStoryImage();
             } else if (currentCarIndex < portfolioData.length - 1) {
-                // Move to next car
                 currentCarIndex++;
                 currentImageIndex = 0;
                 loadCarStory(currentCarIndex);
             } else {
-                // End of portfolio
                 closeStoryViewer();
             }
         }
         
         function prevImage() {
             if (currentImageIndex > 0) {
-                // Previous image in current car
                 currentImageIndex--;
                 loadStoryImage();
             } else if (currentCarIndex > 0) {
-                // Move to previous car
                 currentCarIndex--;
                 currentImageIndex = portfolioData[currentCarIndex].images.length - 1;
                 loadCarStory(currentCarIndex);
@@ -686,19 +1048,89 @@
         
         function handleSwipe() {
             if (touchEndX < touchStartX - 50) {
-                // Swipe left - next image
                 nextImage();
             } else if (touchEndX > touchStartX + 50) {
-                // Swipe right - previous image
                 prevImage();
             } else {
-                // Not a significant swipe - resume auto-advance
                 resetAutoAdvanceTimer();
                 startProgressBar(currentImageIndex);
             }
         }
         
-        // [Rest of your JavaScript remains the same]
+        // Booking Modal Functionality
+        const modal = document.getElementById('booking-modal');
+        const btn = document.getElementById('book-now-btn');
+        const closeModal = document.querySelector('.close-modal');
+        const confirmationModal = document.getElementById('confirmation-modal');
+        const closeConfirmation = document.getElementById('close-confirmation');
+        
+        btn.addEventListener('click', function() {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        closeConfirmation.addEventListener('click', function() {
+            confirmationModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modals when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            if (event.target === confirmationModal) {
+                confirmationModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            if (event.target === portfolioStory) {
+                closeStoryViewer();
+            }
+        });
+        
+        // Form Submission Handling
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        modal.style.display = 'none';
+                        confirmationModal.style.display = 'flex';
+                        form.reset();
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    alert('There was a problem with your submission. Please try again.');
+                    console.error('Error:', error);
+                });
+            });
+        });
+        
+        // Handle safe areas for notched devices
+        function updateSafeArea() {
+            document.documentElement.style.setProperty('--safe-area', env(safe-area-inset-top, 0px));
+        }
+        
+        window.addEventListener('resize', updateSafeArea);
+        updateSafeArea();
     </script>
 </body>
 </html>
