@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Xtreme Xhaust | Premium Automotive Media Services | Tricity, Chandigarh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Xtreme Xhaust</div>
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="close-mobile-menu" id="close-mobile-menu" aria-label="Close Menu">
+      <i class="fas fa-times"></i>
+    </button>
+    <a href="#home" class="mobile-nav-link">Home</a>
+    <a href="#portfolio" class="mobile-nav-link">Portfolio</a>
+    <a href="#services" class="mobile-nav-link">Services</a>
+    <a href="#contact" class="mobile-nav-link">Contact</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="home" aria-label="Hero">
+    <video autoplay muted loop class="hero-video" playsinline>
+      <source src="Mercedes Benz AMG GLC43 Coupe Malaysia.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Xtreme Xhaust</h1>
+      <p>Premium automotive media services in Tricity, Chandigarh. Photography, videography, editing and more.</p>
+      <button class="btn-primary" id="book-now-btn">Book a Service</button>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2 class="section-title">About Us</h2>
+    <div class="about-content">
+      <p>Based in Tricity, Chandigarh, Xtreme Xhaust specializes in high-end automotive media services. Our team combines technical expertise with artistic vision to showcase vehicles in their best light.</p>
+      <p>We work with car enthusiasts, dealerships, and automotive brands across North India to create stunning visual content and comprehensive media solutions.</p>
+    </div>
+  </section>
+
+  <!-- Portfolio CTA -->
+  <section id="portfolio" class="portfolio-section">
+    <h2 class="section-title">Our Portfolio</h2>
+    <p>Explore our premium automotive photography collection</p>
+    <button class="view-portfolio-btn" id="view-portfolio-btn">View Full Portfolio</button>
+  </section>
+
+  <!-- Instagram Story Style Portfolio Viewer -->
+  <div class="portfolio-story" id="portfolio-story" aria-hidden="true">
+    <div class="story-container">
+      <button class="close-story" aria-label="Close Portfolio">&times;</button>
+      <div class="story-nav story-prev" id="story-prev" aria-label="Previous"></div>
+      <div class="story-nav story-next" id="story-next" aria-label="Next"></div>
+      <div class="story-progress-container" id="story-progress-container"></div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <section id="services" class="services-section">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-container">
+      <div class="service-pill"><i class="fas fa-camera service-icon"></i><span>Car Photography</span></div>
+      <div class="service-pill"><i class="fas fa-video service-icon"></i><span>Car Videography</span></div>
+      <div class="service-pill"><i class="fas fa-car service-icon"></i><span>Dealership Catalogues</span></div>
+      <div class="service-pill"><i class="fas fa-image service-icon"></i><span>Photo Editing</span></div>
+      <div class="service-pill"><i class="fas fa-film service-icon"></i><span>Video Editing</span></div>
+      <div class="service-pill"><i class="fas fa-palette service-icon"></i><span>Color Grading</span></div>
+      <div class="service-pill"><i class="fas fa-globe service-icon"></i><span>Website Development</span></div>
+      <div class="service-pill"><i class="fas fa-bullhorn service-icon"></i><span>Automotive Marketing</span></div>
+      <div class="service-pill"><i class="fas fa-ad service-icon"></i><span>Media Packages</span></div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section id="testimonials" class="testimonials">
+    <h2 class="section-title">Client Testimonials</h2>
+    <div class="testimonial-wrap">
+      <p>"Xtreme Xhaust's photos of my BMW Z4 perfectly captured its sleek design and performance spirit. The images were so good I used them as my phone wallpaper!"</p>
+      <p><strong>- Vikram, Chandigarh</strong></p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="contact-wrap">
+      <form id="contact-form" action="https://formspree.io/f/xzzvonaz" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Your Phone Number" required>
+        <select name="service" required>
+          <option value="">Select Service</option>
+          <optgroup label="Photography & Videography">
+            <option value="Car Photography">Car Photography</option>
+            <option value="Car Videography">Car Videography</option>
+            <option value="Dealership Catalogue">Dealership Catalogue</option>
+          </optgroup>
+          <optgroup label="Editing Services">
+            <option value="Photo Editing">Photo Editing</option>
+            <option value="Video Editing">Video Editing</option>
+            <option value="Color Grading">Color Grading</option>
+          </optgroup>
+          <optgroup label="Digital Services">
+            <option value="Website Development">Website Development</option>
+            <option value="Automotive Marketing">Automotive Marketing</option>
+            <option value="Full Media Package">Full Media Package</option>
+          </optgroup>
+        </select>
+        <textarea name="message" placeholder="Your Message & Details" required></textarea>
+        <button class="btn-primary" type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>Xtreme Xhaust</h3>
+        <p>Premium automotive media services in Tricity, Chandigarh. Photography, videography, editing and digital solutions.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/917679990006"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-phone"></i> +91 7679990006</p>
+        <p><i class="fas fa-envelope"></i> xtremexhaust24@gmail.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Tricity, Chandigarh, India</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2025 Xtreme Xhaust. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div class="modal" id="booking-modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close-modal" aria-label="Close">&times;</button>
+      <h2>Book a Service</h2>
+      <form id="booking-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <select name="service" required>
+          <option value="">Select Service</option>
+          <optgroup label="Photography & Videography">
+            <option value="Car Photography">Car Photography</option>
+            <option value="Car Videography">Car Videography</option>
+            <option value="Dealership Catalogue">Dealership Catalogue</option>
+          </optgroup>
+          <optgroup label="Editing Services">
+            <option value="Photo Editing">Photo Editing</option>
+            <option value="Video Editing">Video Editing</option>
+            <option value="Color Grading">Color Grading</option>
+          </optgroup>
+          <optgroup label="Digital Services">
+            <option value="Website Development">Website Development</option>
+            <option value="Automotive Marketing">Automotive Marketing</option>
+            <option value="Full Media Package">Full Media Package</option>
+          </optgroup>
+        </select>
+        <input type="text" name="details" placeholder="Vehicle/Project Details" required>
+        <input type="date" name="date" required>
+        <button class="btn-primary" type="submit">Book Now</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div class="modal" id="confirmation-modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close-modal" aria-label="Close">&times;</button>
+      <div class="confirm-wrap">
+        <div class="confirm-icon"><i class="fas fa-check-circle"></i></div>
+        <h2>Booking Confirmed!</h2>
+        <p>Your service request has been submitted successfully.</p>
+        <p>We'll contact you shortly to confirm the details.</p>
+        <p>For immediate queries, call us at: <strong>+91 7679990006</strong></p>
+        <button class="btn-primary" id="close-confirmation">Got It!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Banner -->
+  <div class="contact-banner">
+    For queries, contact us at: <strong>+91 7679990006</strong> | <a href="mailto:xtremexhaust24@gmail.com">xtremexhaust24@gmail.com</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
