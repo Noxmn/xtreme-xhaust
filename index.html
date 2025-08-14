@@ -186,7 +186,54 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
-        /* Instagram-style Portfolio Viewer */
+        /* Compact Services Section */
+        .services-section {
+            background-color: white;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .service-pill {
+            background-color: white;
+            border-radius: 50px;
+            padding: 10px 18px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            text-align: center;
+            border: 1px solid #eee;
+            font-size: 14px;
+            cursor: default;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .service-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .service-pill:hover .service-icon {
+            color: white;
+        }
+        
+        .service-icon {
+            color: var(--primary);
+            font-size: 16px;
+        }
+        
+        /* Instagram Story Style Portfolio Viewer */
         .portfolio-story {
             position: fixed;
             top: 0;
@@ -207,33 +254,39 @@
             overflow: hidden;
         }
         
-        .story-image {
+        .story-content {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             opacity: 0;
             transition: opacity 0.5s ease;
-            touch-action: pan-y;
-            -webkit-user-drag: none;
         }
         
-        .story-image.active {
+        .story-content.active {
             opacity: 1;
         }
         
-        .story-username {
-            position: absolute;
-            top: calc(20px + var(--safe-area));
-            left: 15px;
+        .story-title {
             color: white;
-            font-weight: bold;
-            font-size: clamp(14px, 3.5vw, 16px);
-            z-index: 10;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 0 20px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        .story-image {
+            max-width: 90%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
         
         .story-nav {
@@ -484,24 +537,14 @@
         }
         
         /* Responsive Adjustments */
-        @media (min-width: 768px) {
-            .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 20px;
+        @media (max-width: 768px) {
+            .services-container {
+                gap: 10px;
             }
             
-            .service-card {
-                padding: 18px;
-            }
-            
-            .service-icon {
-                font-size: 28px;
-            }
-        }
-        
-        @media (min-width: 992px) {
-            .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            .service-pill {
+                padding: 8px 14px;
+                font-size: 13px;
             }
         }
     </style>
@@ -557,7 +600,6 @@
     <div class="portfolio-story" id="portfolio-story">
         <div class="story-container">
             <button class="close-story">&times;</button>
-            <div class="story-username" id="story-username"></div>
             <div class="story-nav story-prev" id="story-prev"></div>
             <div class="story-nav story-next" id="story-next"></div>
             <div class="story-progress-container" id="story-progress-container"></div>
@@ -566,67 +608,42 @@
     
     <section id="services" class="services-section">
         <h2 class="section-title">Our Services</h2>
-        
-        <div class="services-category">
-            <h3>Photography & Videography</h3>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-camera"></i></div>
-                    <h4>Premium Car Photography</h4>
-                    <p>Studio-quality automotive photography showcasing your vehicle's best features</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-video"></i></div>
-                    <h4>Cinematic Car Videos</h4>
-                    <p>Professional videography with dynamic shots and smooth editing</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-car"></i></div>
-                    <h4>Dealership Catalogues</h4>
-                    <p>Complete visual solutions for dealership inventory presentation</p>
-                </div>
+        <div class="services-container">
+            <div class="service-pill">
+                <i class="fas fa-camera service-icon"></i>
+                <span>Car Photography</span>
             </div>
-        </div>
-        
-        <div class="services-category">
-            <h3>Editing Services</h3>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-image"></i></div>
-                    <h4>Photo Editing</h4>
-                    <p>Professional retouching, background replacement, and enhancement</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-film"></i></div>
-                    <h4>Video Editing</h4>
-                    <p>Cinematic editing with transitions, effects, and sound design</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-palette"></i></div>
-                    <h4>Color Grading</h4>
-                    <p>Professional color correction and stylistic grading for videos</p>
-                </div>
+            <div class="service-pill">
+                <i class="fas fa-video service-icon"></i>
+                <span>Car Videography</span>
             </div>
-        </div>
-        
-        <div class="services-category">
-            <h3>Digital Services</h3>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-globe"></i></div>
-                    <h4>Website Development</h4>
-                    <p>Custom websites for automotive businesses and enthusiasts</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
-                    <h4>Automotive Marketing</h4>
-                    <p>Social media management and promotional campaigns</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-ad"></i></div>
-                    <h4>Media Packages</h4>
-                    <p>Complete media solutions including all services</p>
-                </div>
+            <div class="service-pill">
+                <i class="fas fa-car service-icon"></i>
+                <span>Dealership Catalogues</span>
+            </div>
+            <div class="service-pill">
+                <i class="fas fa-image service-icon"></i>
+                <span>Photo Editing</span>
+            </div>
+            <div class="service-pill">
+                <i class="fas fa-film service-icon"></i>
+                <span>Video Editing</span>
+            </div>
+            <div class="service-pill">
+                <i class="fas fa-palette service-icon"></i>
+                <span>Color Grading</span>
+            </div>
+            <div class="service-pill">
+                <i class="fas fa-globe service-icon"></i>
+                <span>Website Development</span>
+            </div>
+            <div class="service-pill">
+                <i class="fas fa-bullhorn service-icon"></i>
+                <span>Automotive Marketing</span>
+            </div>
+            <div class="service-pill">
+                <i class="fas fa-ad service-icon"></i>
+                <span>Media Packages</span>
             </div>
         </div>
     </section>
@@ -882,7 +899,6 @@
         const portfolioStory = document.getElementById('portfolio-story');
         const storyContainer = document.querySelector('.story-container');
         const closeStory = document.querySelector('.close-story');
-        const storyUsername = document.getElementById('story-username');
         const storyPrev = document.getElementById('story-prev');
         const storyNext = document.getElementById('story-next');
         const storyProgressContainer = document.getElementById('story-progress-container');
@@ -908,21 +924,31 @@
         function loadStoryImage() {
             const carData = portfolioData[currentCarIndex];
             
-            // Clear existing images
-            storyContainer.querySelectorAll('.story-image').forEach(img => img.remove());
-            
-            // Set the username
-            storyUsername.textContent = carData.car;
+            // Clear existing content
+            storyContainer.querySelectorAll('.story-content').forEach(el => el.remove());
             
             // Create progress bars
             createProgressBars(carData.images.length);
             
-            // Create new image
+            // Create story content container
+            const storyContent = document.createElement('div');
+            storyContent.className = 'story-content active';
+            
+            // Add title
+            const title = document.createElement('h2');
+            title.className = 'story-title';
+            title.textContent = carData.car;
+            storyContent.appendChild(title);
+            
+            // Add image
             const img = document.createElement('img');
             img.src = carData.images[currentImageIndex];
             img.alt = carData.alt;
-            img.classList.add('story-image', 'active');
-            storyContainer.insertBefore(img, storyUsername.nextSibling);
+            img.className = 'story-image';
+            storyContent.appendChild(img);
+            
+            // Add to container
+            storyContainer.appendChild(storyContent);
             
             // Start auto-advance and progress bar
             resetAutoAdvanceTimer();
