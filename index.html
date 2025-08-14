@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xtreme Xhaust | Premium Car Photography & Videography | Tricity, Chandigarh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Xtreme Xhaust | Premium Automotive Media Services | Tricity, Chandigarh</title>
     <style>
         :root {
             --primary: #ff2d00; /* Xtreme red */
@@ -11,55 +11,62 @@
             --accent: #ff6b00;
             --light: #f8f9fa;
             --dark: #212529;
+            --safe-area: env(safe-area-inset-top, 0px);
+        }
+        
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             margin: 0;
             padding: 0;
             color: var(--dark);
-            padding-bottom: 60px; /* For contact banner */
+            padding-bottom: 60px;
             overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            -moz-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
         }
         
         .navbar {
             background-color: rgba(0, 0, 0, 0.8);
             padding: 15px 5%;
             position: fixed;
-            width: 90%;
+            width: 100%;
             z-index: 1000;
             backdrop-filter: blur(10px);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding-top: calc(15px + var(--safe-area));
+            top: 0;
+            left: 0;
         }
         
         .logo {
             color: var(--primary);
             font-weight: 700;
-            font-size: 24px;
+            font-size: clamp(18px, 5vw, 24px);
             text-transform: uppercase;
             letter-spacing: 2px;
         }
         
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .nav-links a {
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
             color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
+            font-size: 24px;
+            cursor: pointer;
         }
         
         .hero {
             height: 100vh;
+            min-height: -webkit-fill-available;
             position: relative;
             overflow: hidden;
             color: white;
@@ -67,6 +74,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            padding-top: var(--safe-area);
         }
         
         .hero-video {
@@ -90,15 +98,17 @@
         }
         
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 8vw, 3.5rem);
             margin-bottom: 20px;
             text-transform: uppercase;
+            padding: 0 15px;
         }
         
         .hero-content p {
-            font-size: 1.2rem;
-            max-width: 700px;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            max-width: min(700px, 90vw);
             margin: 0 auto 30px;
+            padding: 0 15px;
         }
         
         .btn-primary {
@@ -112,45 +122,167 @@
             letter-spacing: 1px;
             transition: all 0.3s;
             cursor: pointer;
+            font-size: clamp(14px, 2vw, 16px);
+            display: inline-block;
         }
         
-        .btn-primary:hover {
+        .btn-primary:hover, .btn-primary:focus {
             background-color: #e02600;
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
         section {
-            padding: 80px 10%;
+            padding: clamp(30px, 5vw, 60px) 5%;
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: clamp(20px, 4vw, 40px);
             position: relative;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
         }
         
         .section-title:after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 60px;
             height: 3px;
             background-color: var(--primary);
         }
         
-        /* Instagram-style Portfolio */
+        /* Portfolio Section */
+        .portfolio-section {
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        
+        .view-portfolio-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 20px auto;
+            cursor: pointer;
+            font-size: clamp(14px, 2.5vw, 16px);
+            display: block;
+            transition: all 0.3s;
+            width: fit-content;
+        }
+        
+        .view-portfolio-btn:hover {
+            background-color: #e02600;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .portfolio-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(120px, 100%), 1fr));
+            gap: 10px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        
+        .portfolio-preview-item {
+            border-radius: 6px;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .portfolio-preview-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .portfolio-preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Services Section */
+        .services-section {
+            background-color: white;
+        }
+        
+        .services-category {
+            margin-bottom: 30px;
+        }
+        
+        .services-category h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+        }
+        
+        .service-icon {
+            font-size: clamp(24px, 6vw, 32px);
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .service-card h4 {
+            margin: 0 0 8px;
+            font-size: clamp(14px, 3vw, 16px);
+        }
+        
+        .service-card p {
+            margin: 0;
+            font-size: clamp(12px, 2.5vw, 14px);
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        /* Instagram-style Portfolio Viewer */
         .portfolio-story {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
+            height: -webkit-fill-available;
             background-color: black;
             z-index: 2000;
             display: none;
+            touch-action: pan-y;
         }
         
         .story-container {
@@ -169,7 +301,9 @@
             object-fit: contain;
             background-color: black;
             opacity: 0;
-            transition: opacity 0.5s ease, transform 0.3s ease;
+            transition: opacity 0.5s ease;
+            touch-action: pan-y;
+            -webkit-user-drag: none;
         }
         
         .story-image.active {
@@ -178,12 +312,13 @@
         
         .story-username {
             position: absolute;
-            top: 30px;
-            left: 20px;
+            top: calc(20px + var(--safe-area));
+            left: 15px;
             color: white;
             font-weight: bold;
-            font-size: 18px;
+            font-size: clamp(14px, 3.5vw, 16px);
             z-index: 10;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
         
         .story-nav {
@@ -192,6 +327,7 @@
             width: 50%;
             height: 100%;
             z-index: 5;
+            cursor: pointer;
         }
         
         .story-prev {
@@ -204,149 +340,159 @@
         
         .close-story {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: calc(15px + var(--safe-area));
+            right: 15px;
             color: white;
-            font-size: 30px;
+            font-size: clamp(20px, 5vw, 26px);
             z-index: 10;
             cursor: pointer;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            background: none;
+            border: none;
+            padding: 8px;
         }
         
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+        .story-progress-container {
+            position: absolute;
+            top: calc(12px + var(--safe-area));
+            left: 8px;
+            right: 8px;
+            display: flex;
+            gap: 4px;
+            z-index: 10;
         }
         
-        .portfolio-item {
-            position: relative;
+        .story-progress-bar {
+            height: 2px;
+            background: rgba(255,255,255,0.3);
+            flex-grow: 1;
+            border-radius: 2px;
             overflow: hidden;
-            border-radius: 8px;
-            height: 250px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
         }
         
-        .portfolio-item img {
-            width: 100%;
+        .story-progress-bar.active {
+            background: rgba(255,255,255,0.6);
+        }
+        
+        .story-progress-bar.completed {
+            background: white;
+        }
+        
+        .story-progress-bar > div {
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
+            width: 0%;
+            background: white;
+            transition: width linear;
         }
         
-        .portfolio-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .portfolio-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            color: white;
-            padding: 15px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .portfolio-item:hover .portfolio-caption {
-            opacity: 1;
-        }
-        
-        .service-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            text-align: center;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .modal {
+        /* Mobile Menu */
+        .mobile-menu {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 999;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding-top: var(--safe-area);
         }
         
-        .modal-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
+        .mobile-menu.active {
+            display: flex;
         }
         
-        .close-modal {
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(18px, 5vw, 22px);
+            margin: 12px 0;
+            padding: 8px 16px;
+            transition: color 0.3s;
+        }
+        
+        .mobile-menu a:hover {
+            color: var(--primary);
+        }
+        
+        .close-mobile-menu {
             position: absolute;
-            top: 15px;
+            top: calc(15px + var(--safe-area));
             right: 15px;
-            font-size: 24px;
+            color: white;
+            font-size: clamp(22px, 6vw, 28px);
+            background: none;
+            border: none;
             cursor: pointer;
         }
         
-        .confirmation-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+        /* Contact Form */
+        input, select, textarea {
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 3000;
-            align-items: center;
-            justify-content: center;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: clamp(13px, 3vw, 15px);
+            margin-bottom: 15px;
         }
         
-        .confirmation-content {
-            background-color: white;
-            padding: 40px;
-            border-radius: 8px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            position: relative;
+        textarea {
+            height: 120px;
+            resize: vertical;
         }
         
-        .confirmation-icon {
-            font-size: 60px;
-            color: #4CAF50;
-            margin-bottom: 20px;
-        }
-        
-        .contact-banner {
-            background-color: var(--primary);
-            color: white;
-            padding: 15px;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-        
+        /* Footer */
         footer {
             background-color: var(--secondary);
             color: white;
-            padding: 50px 10% 20px;
+            padding: clamp(25px, 5vw, 40px) 5% 15px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
+            gap: clamp(15px, 4vw, 30px);
+        }
+        
+        .footer-grid h3 {
+            font-size: clamp(16px, 3.5vw, 18px);
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+        
+        .footer-grid p, .footer-grid li {
+            font-size: clamp(13px, 3vw, 14px);
+            line-height: 1.5;
+        }
+        
+        .footer-grid ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-grid a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-grid a:hover {
+            color: var(--primary);
+        }
+        
+        .social-icons {
+            margin-top: 15px;
         }
         
         .social-icons a {
             color: white;
-            margin-right: 15px;
-            font-size: 20px;
+            margin-right: 12px;
+            font-size: clamp(16px, 4vw, 20px);
             transition: color 0.3s;
         }
         
@@ -354,23 +500,98 @@
             color: var(--primary);
         }
         
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
+        .copyright {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: clamp(12px, 3vw, 14px);
+        }
+        
+        /* Contact Banner */
+        .contact-banner {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
+            font-size: clamp(11px, 3vw, 14px);
+        }
+        
+        .contact-banner a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* Modal Windows */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: clamp(18px, 4vw, 25px);
+            border-radius: 8px;
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-content h2 {
+            margin-top: 0;
+            font-size: clamp(1.3rem, 4vw, 1.6rem);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 22px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        /* Responsive Adjustments */
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
             }
             
-            .nav-links {
-                display: none;
+            .portfolio-preview {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
             }
             
-            .contact-banner {
-                font-size: 14px;
-                padding: 10px;
+            .service-card {
+                padding: 18px;
             }
             
-            .story-username {
-                font-size: 16px;
-                top: 20px;
+            .service-icon {
+                font-size: 28px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             }
         }
     </style>
@@ -380,83 +601,60 @@
 <body>
     <nav class="navbar">
         <div class="logo">Xtreme Xhaust</div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
     </nav>
     
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="close-mobile-menu" id="close-mobile-menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#home" class="mobile-nav-link">Home</a>
+        <a href="#portfolio" class="mobile-nav-link">Portfolio</a>
+        <a href="#services" class="mobile-nav-link">Services</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+    </div>
+    
     <section class="hero" id="home">
-        <video autoplay muted loop class="hero-video">
+        <video autoplay muted loop class="hero-video" playsinline>
             <source src="Mercedes Benz AMG GLC43 Coupe Malaysia.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Xtreme Xhaust</h1>
-            <p>Premium automotive photography & videography services in Tricity, Chandigarh. Capturing the soul of your machine.</p>
-            <button class="btn-primary" id="book-now-btn">Book a Shoot</button>
+            <p>Premium automotive media services in Tricity, Chandigarh. Photography, videography, editing and more.</p>
+            <button class="btn-primary" id="book-now-btn">Book a Service</button>
         </div>
     </section>
     
     <section id="about">
         <h2 class="section-title">About Us</h2>
         <div class="about-content">
-            <p>Based in Tricity, Chandigarh, Xtreme Xhaust specializes in high-end automotive photography and videography. Our team combines technical expertise with artistic vision to showcase vehicles in their best light.</p>
-            <p>We work with car enthusiasts, dealerships, and automotive brands across North India to create stunning visual content that makes your vehicle look its absolute best.</p>
+            <p>Based in Tricity, Chandigarh, Xtreme Xhaust specializes in high-end automotive media services. Our team combines technical expertise with artistic vision to showcase vehicles in their best light.</p>
+            <p>We work with car enthusiasts, dealerships, and automotive brands across North India to create stunning visual content and comprehensive media solutions.</p>
         </div>
     </section>
     
-    <section id="portfolio" style="background-color: #f5f5f5;">
+    <section id="portfolio" class="portfolio-section">
         <h2 class="section-title">Our Portfolio</h2>
-        <div class="portfolio-grid">
-            <!-- BMW -->
-            <div class="portfolio-item" data-car="BMW Z4" data-images='["WhatsApp Image 2025-08-13 at 21.07.05 (1).jpeg","WhatsApp Image 2025-08-13 at 21.07.01.jpeg"]'>
-                <img src="WhatsApp Image 2025-08-13 at 21.07.05 (1).jpeg" alt="BMW car photoshoot">
-                <div class="portfolio-caption">BMW Z4 Photoshoot</div>
+        <p>Explore our premium automotive photography collection</p>
+        <button class="view-portfolio-btn" id="view-portfolio-btn">View Full Portfolio</button>
+        
+        <div class="portfolio-preview">
+            <!-- Preview thumbnails -->
+            <div class="portfolio-preview-item" data-car-index="0">
+                <img src="WhatsApp Image 2025-08-13 at 21.07.05 (1).jpeg" alt="BMW Z4 preview">
             </div>
-            
-            <!-- McLaren -->
-            <div class="portfolio-item" data-car="McLaren 720S" data-images='["WhatsApp Image 2025-08-13 at 21.07.07.jpeg","WhatsApp Image 2025-08-13 at 21.06.59.jpeg"]'>
-                <img src="WhatsApp Image 2025-08-13 at 21.07.07.jpeg" alt="McLaren car photoshoot">
-                <div class="portfolio-caption">McLaren 720S</div>
+            <div class="portfolio-preview-item" data-car-index="1">
+                <img src="WhatsApp Image 2025-08-13 at 21.07.07.jpeg" alt="McLaren 720S preview">
             </div>
-            
-            <!-- Bentley -->
-            <div class="portfolio-item" data-car="Bentley Continental GT" data-images='["WhatsApp Image 2025-08-13 at 21.07.02.jpeg"]'>
-                <img src="WhatsApp Image 2025-08-13 at 21.07.02.jpeg" alt="Bentley car photoshoot">
-                <div class="portfolio-caption">Bentley Continental GT</div>
+            <div class="portfolio-preview-item" data-car-index="2">
+                <img src="WhatsApp Image 2025-08-13 at 21.07.02.jpeg" alt="Bentley Continental GT preview">
             </div>
-            
-            <!-- Maserati -->
-            <div class="portfolio-item" data-car="Maserati GranTurismo" data-images='["WhatsApp Image 2025-08-13 at 21.07.00.jpeg"]'>
-                <img src="WhatsApp Image 2025-08-13 at 21.07.00.jpeg" alt="Maserati car photoshoot">
-                <div class="portfolio-caption">Maserati GranTurismo</div>
-            </div>
-            
-            <!-- Ferrari -->
-            <div class="portfolio-item" data-car="Ferrari 488 GTB" data-images='["WhatsApp Image 2025-08-13 at 21.07.06 (1).jpeg","WhatsApp Image 2025-08-13 at 21.07.06.jpeg"]'>
-                <img src="WhatsApp Image 2025-08-13 at 21.07.06 (1).jpeg" alt="Ferrari car photoshoot">
-                <div class="portfolio-caption">Ferrari 488 GTB</div>
-            </div>
-            
-            <!-- Kawasaki Ninja ZX10R -->
-            <div class="portfolio-item" data-car="Kawasaki Ninja ZX10R" data-images='["WhatsApp Image 2025-08-13 at 21.07.04 (1).jpeg","WhatsApp Image 2025-08-13 at 21.07.04.jpeg","WhatsApp Image 2025-08-13 at 21.07.05.jpeg"]'>
-                <img src="WhatsApp Image 2025-08-13 at 21.07.04 (1).jpeg" alt="Kawasaki Ninja ZX10R photoshoot">
-                <div class="portfolio-caption">Kawasaki Ninja ZX10R</div>
-            </div>
-            
-            <!-- Lamborghini Urus -->
-            <div class="portfolio-item" data-car="Lamborghini Urus" data-images='["WhatsApp Image 2025-08-13 at 21.07.02 (1).jpeg"]'>
-                <img src="WhatsApp Image 2025-08-13 at 21.07.02 (1).jpeg" alt="Lamborghini Urus photoshoot">
-                <div class="portfolio-caption">Lamborghini Urus</div>
-            </div>
-            
-            <!-- Lamborghini Huracan Evo Spider -->
-            <div class="portfolio-item" data-car="Lamborghini Huracan Evo Spider" data-images='["WhatsApp Image 2025-08-13 at 21.06.43.jpeg","WhatsApp Image 2025-08-13 at 21.06.44.jpeg"]'>
-                <img src="WhatsApp Image 2025-08-13 at 21.06.43.jpeg" alt="Lamborghini Huracan Evo Spider photoshoot">
-                <div class="portfolio-caption">Huracan Evo Spider</div>
+            <div class="portfolio-preview-item" data-car-index="4">
+                <img src="WhatsApp Image 2025-08-13 at 21.07.06 (1).jpeg" alt="Ferrari 488 GTB preview">
             </div>
         </div>
     </section>
@@ -464,31 +662,77 @@
     <!-- Instagram Story Style Portfolio Viewer -->
     <div class="portfolio-story" id="portfolio-story">
         <div class="story-container">
-            <span class="close-story">&times;</span>
+            <button class="close-story">&times;</button>
             <div class="story-username" id="story-username"></div>
             <div class="story-nav story-prev" id="story-prev"></div>
             <div class="story-nav story-next" id="story-next"></div>
-            <!-- Images will be inserted here by JavaScript -->
+            <div class="story-progress-container" id="story-progress-container"></div>
         </div>
     </div>
     
-    <section id="services">
+    <section id="services" class="services-section">
         <h2 class="section-title">Our Services</h2>
-        <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-            <div class="service-card">
-                <i class="fas fa-camera" style="font-size: 40px; color: var(--primary); margin-bottom: 20px;"></i>
-                <h3>Premium Car Photography</h3>
-                <p>High-resolution professional photography showcasing your vehicle's best angles and features with studio-quality lighting.</p>
+        
+        <div class="services-category">
+            <h3>Photography & Videography</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-camera"></i></div>
+                    <h4>Premium Car Photography</h4>
+                    <p>Studio-quality automotive photography showcasing your vehicle's best features</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-video"></i></div>
+                    <h4>Cinematic Car Videos</h4>
+                    <p>Professional videography with dynamic shots and smooth editing</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-car"></i></div>
+                    <h4>Dealership Catalogues</h4>
+                    <p>Complete visual solutions for dealership inventory presentation</p>
+                </div>
             </div>
-            <div class="service-card">
-                <i class="fas fa-video" style="font-size: 40px; color: var(--primary); margin-bottom: 20px;"></i>
-                <h3>Cinematic Car Videos</h3>
-                <p>Stunning videography with dynamic shots, slow motion, rolling shots and professional editing.</p>
+        </div>
+        
+        <div class="services-category">
+            <h3>Editing Services</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-image"></i></div>
+                    <h4>Photo Editing</h4>
+                    <p>Professional retouching, background replacement, and enhancement</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-film"></i></div>
+                    <h4>Video Editing</h4>
+                    <p>Cinematic editing with transitions, effects, and sound design</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-palette"></i></div>
+                    <h4>Color Grading</h4>
+                    <p>Professional color correction and stylistic grading for videos</p>
+                </div>
             </div>
-            <div class="service-card">
-                <i class="fas fa-car" style="font-size: 40px; color: var(--primary); margin-bottom: 20px;"></i>
-                <h3>Dealership Catalogues</h3>
-                <p>Complete visual solutions for car dealerships to showcase their inventory with consistent, high-quality images.</p>
+        </div>
+        
+        <div class="services-category">
+            <h3>Digital Services</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-globe"></i></div>
+                    <h4>Website Development</h4>
+                    <p>Custom websites for automotive businesses and enthusiasts</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h4>Automotive Marketing</h4>
+                    <p>Social media management and promotional campaigns</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-ad"></i></div>
+                    <h4>Media Packages</h4>
+                    <p>Complete media solutions including all services</p>
+                </div>
             </div>
         </div>
     </section>
@@ -505,26 +749,37 @@
         <h2 class="section-title">Get In Touch</h2>
         <div style="max-width: 800px; margin: 0 auto;">
             <form id="contact-form" action="https://formspree.io/f/xzzvonaz" method="POST">
-                <div style="margin-bottom: 20px;">
-                    <input type="text" name="name" placeholder="Your Name" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;" required>
+                <div style="margin-bottom: 15px;">
+                    <input type="text" name="name" placeholder="Your Name" required>
                 </div>
-                <div style="margin-bottom: 20px;">
-                    <input type="email" name="email" placeholder="Your Email" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;" required>
+                <div style="margin-bottom: 15px;">
+                    <input type="email" name="email" placeholder="Your Email" required>
                 </div>
-                <div style="margin-bottom: 20px;">
-                    <input type="tel" name="phone" placeholder="Your Phone Number" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;" required>
+                <div style="margin-bottom: 15px;">
+                    <input type="tel" name="phone" placeholder="Your Phone Number" required>
                 </div>
-                <div style="margin-bottom: 20px;">
-                    <select name="service" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;" required>
+                <div style="margin-bottom: 15px;">
+                    <select name="service" required>
                         <option value="">Select Service</option>
-                        <option value="Photoshoot">Photoshoot</option>
-                        <option value="Videography">Videography</option>
-                        <option value="Both">Both</option>
-                        <option value="Dealership Catalogue">Dealership Catalogue</option>
+                        <optgroup label="Photography & Videography">
+                            <option value="Car Photography">Car Photography</option>
+                            <option value="Car Videography">Car Videography</option>
+                            <option value="Dealership Catalogue">Dealership Catalogue</option>
+                        </optgroup>
+                        <optgroup label="Editing Services">
+                            <option value="Photo Editing">Photo Editing</option>
+                            <option value="Video Editing">Video Editing</option>
+                            <option value="Color Grading">Color Grading</option>
+                        </optgroup>
+                        <optgroup label="Digital Services">
+                            <option value="Website Development">Website Development</option>
+                            <option value="Automotive Marketing">Automotive Marketing</option>
+                            <option value="Full Media Package">Full Media Package</option>
+                        </optgroup>
                     </select>
                 </div>
-                <div style="margin-bottom: 20px;">
-                    <textarea name="message" placeholder="Your Message & Vehicle Details" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; height: 150px;"></textarea>
+                <div style="margin-bottom: 15px;">
+                    <textarea name="message" placeholder="Your Message & Details" required></textarea>
                 </div>
                 <button class="btn-primary" type="submit">Send Message</button>
             </form>
@@ -532,18 +787,24 @@
     </section>
     
     <footer>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;">
+        <div class="footer-grid">
             <div>
-                <h3 style="color: var(--primary);">Xtreme Xhaust</h3>
-                <p>Premium automotive photography and videography services in Tricity, Chandigarh.</p>
+                <h3>Xtreme Xhaust</h3>
+                <p>Premium automotive media services in Tricity, Chandigarh. Photography, videography, editing and digital solutions.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="https://wa.me/917679990006"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
             <div>
                 <h3>Quick Links</h3>
-                <ul style="list-style: none; padding: 0;">
-                    <li><a href="#home" style="color: white; text-decoration: none;">Home</a></li>
-                    <li><a href="#portfolio" style="color: white; text-decoration: none;">Portfolio</a></li>
-                    <li><a href="#services" style="color: white; text-decoration: none;">Services</a></li>
-                    <li><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
             <div>
@@ -553,209 +814,395 @@
                 <p><i class="fas fa-map-marker-alt"></i> Tricity, Chandigarh, India</p>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="https://wa.me/917679990006"><i class="fab fa-whatsapp"></i></a>
-            </div>
-            <p style="margin-top: 20px;">© 2023 Xtreme Xhaust. All Rights Reserved.</p>
+        <div class="copyright">
+            <p>© 2023 Xtreme Xhaust. All Rights Reserved.</p>
         </div>
     </footer>
     
     <!-- Booking Modal -->
     <div class="modal" id="booking-modal">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 style="margin-top: 0;">Book a Photoshoot</h2>
+            <button class="close-modal">&times;</button>
+            <h2>Book a Service</h2>
             <form id="booking-form" action="https://formspree.io/f/xzzvonaz" method="POST">
                 <div style="margin-bottom: 15px;">
-                    <input type="text" name="name" placeholder="Your Name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                    <input type="text" name="name" placeholder="Your Name" required>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <input type="email" name="email" placeholder="Your Email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <input type="tel" name="phone" placeholder="Phone Number" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <select name="service" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                    <select name="service" required>
                         <option value="">Select Service</option>
-                        <option value="Photoshoot">Photoshoot</option>
-                        <option value="Videography">Videography</option>
-                        <option value="Both">Both</option>
+                        <optgroup label="Photography & Videography">
+                            <option value="Car Photography">Car Photography</option>
+                            <option value="Car Videography">Car Videography</option>
+                            <option value="Dealership Catalogue">Dealership Catalogue</option>
+                        </optgroup>
+                        <optgroup label="Editing Services">
+                            <option value="Photo Editing">Photo Editing</option>
+                            <option value="Video Editing">Video Editing</option>
+                            <option value="Color Grading">Color Grading</option>
+                        </optgroup>
+                        <optgroup label="Digital Services">
+                            <option value="Website Development">Website Development</option>
+                            <option value="Automotive Marketing">Automotive Marketing</option>
+                            <option value="Full Media Package">Full Media Package</option>
+                        </optgroup>
                     </select>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <input type="text" name="vehicle" placeholder="Vehicle Make & Model" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                    <input type="text" name="details" placeholder="Vehicle/Project Details" required>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <input type="date" name="date" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                    <input type="date" name="date" required>
                 </div>
                 <button class="btn-primary" type="submit">Book Now</button>
             </form>
         </div>
     </div>
     
-    <!-- Shoot Confirmed Modal -->
-    <div class="confirmation-modal" id="confirmation-modal">
-        <div class="confirmation-content">
-            <div class="confirmation-icon">
-                <i class="fas fa-check-circle"></i>
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmation-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div style="text-align: center;">
+                <div style="font-size: 50px; color: #4CAF50; margin-bottom: 20px;">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Booking Confirmed!</h2>
+                <p>Your service request has been submitted successfully. We'll contact you shortly to confirm the details.</p>
+                <p>For immediate queries, call us at: <strong>+91 7679990006</strong></p>
+                <button class="btn-primary" id="close-confirmation" style="margin-top: 20px;">Got It!</button>
             </div>
-            <h2>Shoot Confirmed!</h2>
-            <p>Your booking has been successfully submitted. We'll contact you shortly to confirm the details.</p>
-            <p>For immediate queries, call us at: <strong>+91 7679990006</strong></p>
-            <button class="btn-primary" id="close-confirmation" style="margin-top: 20px;">Got It!</button>
         </div>
     </div>
     
     <!-- Contact Banner -->
     <div class="contact-banner">
-        For queries, contact us at: <strong>+91 7679990006</strong> | <a href="mailto:xtremexhaust24@gmail.com" style="color: white; text-decoration: underline;">xtremexhaust24@gmail.com</a>
+        For queries, contact us at: <strong>+91 7679990006</strong> | <a href="mailto:xtremexhaust24@gmail.com">xtremexhaust24@gmail.com</a>
     </div>
     
     <script>
-        // Instagram Story Portfolio Functionality
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        // Portfolio Data
+        const portfolioData = [
+            {
+                car: "BMW Z4",
+                images: [
+                    "WhatsApp Image 2025-08-13 at 21.07.05 (1).jpeg",
+                    "WhatsApp Image 2025-08-13 at 21.07.01.jpeg"
+                ],
+                alt: "BMW Z4 photoshoot by Xtreme Xhaust"
+            },
+            {
+                car: "McLaren 720S",
+                images: [
+                    "WhatsApp Image 2025-08-13 at 21.07.07.jpeg",
+                    "WhatsApp Image 2025-08-13 at 21.06.59.jpeg"
+                ],
+                alt: "McLaren 720S photoshoot by Xtreme Xhaust"
+            },
+            {
+                car: "Bentley Continental GT",
+                images: [
+                    "WhatsApp Image 2025-08-13 at 21.07.02.jpeg"
+                ],
+                alt: "Bentley Continental GT photoshoot by Xtreme Xhaust"
+            },
+            {
+                car: "Maserati GranTurismo",
+                images: [
+                    "WhatsApp Image 2025-08-13 at 21.07.00.jpeg"
+                ],
+                alt: "Maserati GranTurismo photoshoot by Xtreme Xhaust"
+            },
+            {
+                car: "Ferrari 488 GTB",
+                images: [
+                    "WhatsApp Image 2025-08-13 at 21.07.06 (1).jpeg",
+                    "WhatsApp Image 2025-08-13 at 21.07.06.jpeg"
+                ],
+                alt: "Ferrari 488 GTB photoshoot by Xtreme Xhaust"
+            },
+            {
+                car: "Kawasaki Ninja ZX10R",
+                images: [
+                    "WhatsApp Image 2025-08-13 at 21.07.04 (1).jpeg",
+                    "WhatsApp Image 2025-08-13 at 21.07.04.jpeg",
+                    "WhatsApp Image 2025-08-13 at 21.07.05.jpeg"
+                ],
+                alt: "Kawasaki Ninja ZX10R photoshoot by Xtreme Xhaust"
+            },
+            {
+                car: "Lamborghini Urus",
+                images: [
+                    "WhatsApp Image 2025-08-13 at 21.07.02 (1).jpeg"
+                ],
+                alt: "Lamborghini Urus photoshoot by Xtreme Xhaust"
+            },
+            {
+                car: "Lamborghini Huracan Evo Spider",
+                images: [
+                    "WhatsApp Image 2025-08-13 at 21.06.43.jpeg",
+                    "WhatsApp Image 2025-08-13 at 21.06.44.jpeg"
+                ],
+                alt: "Lamborghini Huracan Evo Spider photoshoot by Xtreme Xhaust"
+            }
+        ];
+
+        // Mobile Menu Functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMobileMenu.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // Portfolio Story Viewer Functionality
+        const viewPortfolioBtn = document.getElementById('view-portfolio-btn');
         const portfolioStory = document.getElementById('portfolio-story');
         const storyContainer = document.querySelector('.story-container');
         const closeStory = document.querySelector('.close-story');
         const storyUsername = document.getElementById('story-username');
         const storyPrev = document.getElementById('story-prev');
         const storyNext = document.getElementById('story-next');
+        const storyProgressContainer = document.getElementById('story-progress-container');
+        const portfolioPreviewItems = document.querySelectorAll('.portfolio-preview-item');
         
-        let currentCar = '';
-        let currentImages = [];
-        let currentIndex = 0;
+        let currentCarIndex = 0;
+        let currentImageIndex = 0;
+        let autoAdvanceTimer;
+        let progressInterval;
         
-        portfolioItems.forEach(item => {
+        // View Full Portfolio Button
+        viewPortfolioBtn.addEventListener('click', function() {
+            loadCarStory(0);
+        });
+        
+        // Click on Preview Items
+        portfolioPreviewItems.forEach(item => {
             item.addEventListener('click', function() {
-                currentCar = this.getAttribute('data-car');
-                currentImages = JSON.parse(this.getAttribute('data-images'));
-                currentIndex = 0;
-                
-                // Show the story viewer
-                portfolioStory.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                
-                // Set the username
-                storyUsername.textContent = currentCar;
-                
-                // Load the first image
-                loadStoryImage();
+                const carIndex = parseInt(this.getAttribute('data-car-index'));
+                loadCarStory(carIndex);
             });
         });
         
+        function loadCarStory(carIndex) {
+            currentCarIndex = carIndex;
+            currentImageIndex = 0;
+            portfolioStory.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            loadStoryImage();
+        }
+        
         function loadStoryImage() {
+            const carData = portfolioData[currentCarIndex];
+            
             // Clear existing images
             storyContainer.querySelectorAll('.story-image').forEach(img => img.remove());
             
+            // Set the username
+            storyUsername.textContent = carData.car;
+            
+            // Create progress bars
+            createProgressBars(carData.images.length);
+            
             // Create new image
             const img = document.createElement('img');
-            img.src = currentImages[currentIndex];
+            img.src = carData.images[currentImageIndex];
+            img.alt = carData.alt;
             img.classList.add('story-image', 'active');
             storyContainer.insertBefore(img, storyUsername.nextSibling);
             
-            // Add touch events for mobile swipe
-            let touchStartX = 0;
-            let touchEndX = 0;
-            
-            img.addEventListener('touchstart', e => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, false);
-            
-            img.addEventListener('touchend', e => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            }, false);
+            // Start auto-advance and progress bar
+            resetAutoAdvanceTimer();
+            startProgressBar(currentImageIndex);
         }
         
-        function handleSwipe() {
-            if (touchEndX < touchStartX - 50) {
-                // Swipe left - next image
-                nextImage();
-            } else if (touchEndX > touchStartX + 50) {
-                // Swipe right - previous image
-                prevImage();
+        function createProgressBars(count) {
+            storyProgressContainer.innerHTML = '';
+            
+            for (let i = 0; i < count; i++) {
+                const progressBar = document.createElement('div');
+                progressBar.className = 'story-progress-bar';
+                if (i < currentImageIndex) {
+                    progressBar.classList.add('completed');
+                } else if (i === currentImageIndex) {
+                    progressBar.classList.add('active');
+                }
+                storyProgressContainer.appendChild(progressBar);
             }
         }
         
+        function startProgressBar(imageIndex) {
+            clearInterval(progressInterval);
+            
+            const progressBars = document.querySelectorAll('.story-progress-bar');
+            if (progressBars.length === 0) return;
+            
+            const currentProgressBar = progressBars[imageIndex];
+            const progressFill = document.createElement('div');
+            currentProgressBar.appendChild(progressFill);
+            
+            let width = 0;
+            const duration = 5000;
+            const interval = 50;
+            const increment = (interval / duration) * 100;
+            
+            progressInterval = setInterval(() => {
+                width += increment;
+                progressFill.style.width = width + '%';
+                
+                if (width >= 100) {
+                    clearInterval(progressInterval);
+                }
+            }, interval);
+        }
+        
+        function resetAutoAdvanceTimer() {
+            clearTimeout(autoAdvanceTimer);
+            autoAdvanceTimer = setTimeout(() => {
+                nextImage();
+            }, 5000);
+        }
+        
         function nextImage() {
-            if (currentIndex < currentImages.length - 1) {
-                currentIndex++;
+            const carData = portfolioData[currentCarIndex];
+            
+            if (currentImageIndex < carData.images.length - 1) {
+                currentImageIndex++;
                 loadStoryImage();
+            } else if (currentCarIndex < portfolioData.length - 1) {
+                currentCarIndex++;
+                currentImageIndex = 0;
+                loadCarStory(currentCarIndex);
             } else {
-                // If last image, close the story
                 closeStoryViewer();
             }
         }
         
         function prevImage() {
-            if (currentIndex > 0) {
-                currentIndex--;
+            if (currentImageIndex > 0) {
+                currentImageIndex--;
                 loadStoryImage();
+            } else if (currentCarIndex > 0) {
+                currentCarIndex--;
+                currentImageIndex = portfolioData[currentCarIndex].images.length - 1;
+                loadCarStory(currentCarIndex);
             }
         }
         
+        function closeStoryViewer() {
+            clearTimeout(autoAdvanceTimer);
+            clearInterval(progressInterval);
+            portfolioStory.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Navigation Events
         storyNext.addEventListener('click', nextImage);
         storyPrev.addEventListener('click', prevImage);
+        closeStory.addEventListener('click', closeStoryViewer);
         
-        // Keyboard navigation
+        // Keyboard Navigation
         document.addEventListener('keydown', function(e) {
             if (portfolioStory.style.display === 'block') {
-                if (e.key === 'ArrowRight') {
+                if (e.key === 'ArrowRight' || e.key === 'Right' || e.key === ' ') {
                     nextImage();
-                } else if (e.key === 'ArrowLeft') {
+                } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
                     prevImage();
-                } else if (e.key === 'Escape') {
+                } else if (e.key === 'Escape' || e.key === 'Esc') {
                     closeStoryViewer();
                 }
             }
         });
         
-        function closeStoryViewer() {
-            portfolioStory.style.display = 'none';
-            document.body.style.overflow = 'auto';
+        // Touch Events for Mobile Swipe
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', function(e) {
+            if (portfolioStory.style.display === 'block') {
+                touchStartX = e.changedTouches[0].screenX;
+                clearTimeout(autoAdvanceTimer);
+                clearInterval(progressInterval);
+            }
+        }, { passive: true });
+        
+        document.addEventListener('touchend', function(e) {
+            if (portfolioStory.style.display === 'block') {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }
+        }, { passive: true });
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                nextImage();
+            } else if (touchEndX > touchStartX + 50) {
+                prevImage();
+            } else {
+                resetAutoAdvanceTimer();
+                startProgressBar(currentImageIndex);
+            }
         }
         
-        closeStory.addEventListener('click', closeStoryViewer);
-        
-        // Booking modal functionality
+        // Booking Modal Functionality
         const modal = document.getElementById('booking-modal');
         const btn = document.getElementById('book-now-btn');
-        const span = document.getElementsByClassName('close-modal')[0];
-        
-        btn.onclick = function() {
-            modal.style.display = 'flex';
-        }
-        
-        span.onclick = function() {
-            modal.style.display = 'none';
-        }
-        
-        // Confirmation modal functionality
+        const closeModal = document.querySelector('.close-modal');
         const confirmationModal = document.getElementById('confirmation-modal');
         const closeConfirmation = document.getElementById('close-confirmation');
         
-        closeConfirmation.onclick = function() {
-            confirmationModal.style.display = 'none';
-        }
+        btn.addEventListener('click', function() {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
         
-        window.onclick = function(event) {
-            if (event.target == modal) {
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        closeConfirmation.addEventListener('click', function() {
+            confirmationModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modals when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
                 modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
             }
-            if (event.target == confirmationModal) {
+            if (event.target === confirmationModal) {
                 confirmationModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
             }
-            if (event.target == portfolioStory) {
+            if (event.target === portfolioStory) {
                 closeStoryViewer();
             }
-        }
+        });
         
-        // Form submission handling
+        // Form Submission Handling
         const forms = document.querySelectorAll('form');
         forms.forEach(form => {
             form.addEventListener('submit', function(e) {
@@ -771,11 +1218,8 @@
                 })
                 .then(response => {
                     if (response.ok) {
-                        // Hide booking modal if open
                         modal.style.display = 'none';
-                        // Show confirmation modal
                         confirmationModal.style.display = 'flex';
-                        // Reset form
                         form.reset();
                     } else {
                         throw new Error('Network response was not ok');
@@ -787,6 +1231,14 @@
                 });
             });
         });
+        
+        // Handle safe areas for notched devices
+        function updateSafeArea() {
+            document.documentElement.style.setProperty('--safe-area', env(safe-area-inset-top, 0px));
+        }
+        
+        window.addEventListener('resize', updateSafeArea);
+        updateSafeArea();
     </script>
 </body>
 </html>
